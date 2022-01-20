@@ -3,7 +3,7 @@ import streamlit as st
 def GUI():
 	st.title('UK Schools checker App')
 # get user Post code
-	st.sidebar.subheader("User Post Code")
+	st.sidebar.subheader("User Details")
 	user_post = st.sidebar.text_input("Please enter your post code: ", "WC1B3DG")
 	button_was_clicked = st.sidebar.button("SUBMIT")
 	user_crd = Post_Code_to_Coordinates(user_post)
