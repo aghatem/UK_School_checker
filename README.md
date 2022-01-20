@@ -1,8 +1,5 @@
 # UK_School_checker
 Check nearest schools in UK using home's postcodes and provides OFSTED ranking, school type, distance from home &amp; transport duration with Google Geo-map APIs
-# UK Schools checker
-
-
 This web app helps UK residents to assess schools in their neighberhood & select the suitable school based on multiple criteria
 
 The app takes from user the home postcode and plots on a map the home location and all surrounding schoools in the neighborhood
