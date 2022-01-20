@@ -1,4 +1,4 @@
-from turtle import color
+
 import streamlit as st
 def GUI():
 	st.title('UK Schools checker App')
