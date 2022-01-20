@@ -80,7 +80,7 @@ def nearby_schools(po,user_crd):
 	selected_schools = df[[ 'EstablishmentName', 'OfstedRating (name)', 'LA (name)', 'SchoolCapacity', 'Postcode', 'Locality', 'NumberOfPupils', 'NumberOfBoys',
 	 'NumberOfGirls', 'DistrictAdministrative (name)', 'Gender (name)', 'AdministrativeWard (name)', 'PhaseOfEducation (name)', 'ReligiousCharacter (name)',
 	  'StatutoryLowAge', 'StatutoryHighAge', 'TypeOfEstablishment (name)', 'OfstedLastInsp', 'Street', 'Address3', 'Town', 'County (name)', 'SchoolWebsite',
-	   'TelephoneNum', 'EstablishmentStatus (name)', 'NurseryProvision (name)', 'UKPRN', 'HeadFirstName', 'HeadLastName']]
+	   'TelephoneNum', 'EstablishmentStatus (name)', 'UKPRN', 'HeadFirstName', 'HeadLastName']]
 	# Adding coordinates to each school
 	selected_schools.insert(23, "lat", True)
 	selected_schools.insert(24, "long", True)
