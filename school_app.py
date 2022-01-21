@@ -60,16 +60,16 @@ def Travel_GAPI(Lat1,Long1,Lat2,Long2,Transport_mode):
 	API_key= open("keyfile.txt", "r").read()
 	if tranport_mode == 'car':
 
-		url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" & Lat1 & "%2C" & Long1 & "&destinations=" & Lat2 & "%2C" & Long2 & "&key=" & API_key & "driving"
+			url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" & Lat1 & "%2C" & Long1 & "&destinations=" & Lat2 & "%2C" & Long2 & "&mode=driving" & " &key=" & API_key 
 	if tranport_mode == 'Public Transport':
 
-		url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" & Lat1 & "%2C" & Long1 & "&destinations=" & Lat2 & "%2C" & Long2 & "&key=" & API_key & "transit"
+		url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" & Lat1 & "%2C" & Long1 & "&destinations=" & Lat2 & "%2C" & Long2 & "&mode=transit" & "&key=" & API_key 
 	if tranport_mode == 'Walking':
 
-		url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" & Lat1 & "%2C" & Long1 & "&destinations=" & Lat2 & "%2C" & Long2 & "&key=" & API_key & "walking"
+		url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" & Lat1 & "%2C" & Long1 & "&destinations=" & Lat2 & "%2C" & Long2 & "walking" & API_key
 	if tranport_mode == 'Bike':
 
-		url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" & Lat1 & "%2C" & Long1 & "&destinations=" & Lat2 & "%2C" & Long2 & "&key=" & API_key & "bicycling"
+		url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" & Lat1 & "%2C" & Long1 & "&destinations=" & Lat2 & "%2C" & Long2 & "bicycling" & API_key 
 	payload={}
 	headers = {}
 
