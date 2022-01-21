@@ -47,9 +47,7 @@ def mapit(lat,long):
 	m = folium.Map(location=[lat , long], tiles="OpenStreetMap",zoom_start=16)
 	# add marker to user home
 	tooltip = "Liberty Bell" 
-	#folium.Marker([lat, long], popup="Liberty Bell", tooltip=tooltip).add_to(m)
 	folium.Marker([lat, long], popup="Liberty Bell", tooltip=tooltip).add_to(m)
-	folium.Marker([51.373039, -0.204720], popup="Liberty Bell", tooltip=tooltip).add_to(m)
 	folium_static(m)
 
 def Travel_GAPI(Lat1,Long1,Lat2,Long2,Transport_mode):
