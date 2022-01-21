@@ -139,8 +139,8 @@ def nearby_schools(po,user_crd):
 	st.write(selected_schools.value_counts('OfstedRating (name)'))
 	#schools = selected_schools['EstablishmentName'].tolist()
 	#st.write('Selected School:', option)
-	newdf = selected_schools.loc[(selected_schools.EstablishmentName == option)]
-	Travel_GAPI(user_crd[0] , user_crd[1],newdf[0,23],newdf[0,24],selected_Transport)
+	#newdf = selected_schools.loc[(selected_schools.EstablishmentName == option)]
+	#Travel_GAPI(user_crd[0] , user_crd[1],newdf[0,23],newdf[0,24],selected_Transport)
 
 def main ():
 	
