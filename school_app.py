@@ -128,7 +128,7 @@ def nearby_schools(po,user_crd):
 	for i in range (0,len(selected_schools)):
 		
 		folium.Marker([float(selected_schools.iloc[i,23]),float(selected_schools.iloc[i,24])], popup=selected_schools.iloc[i,0]).add_to(m)
-	
+	folium_static(m)	
 	st.write(selected_schools.head(20))
 	
 
