@@ -12,7 +12,7 @@ import chardet
 
 
 # Streamlit documentation https://docs.streamlit.io/library/api-reference/widgets
-def GUI():
+def input():
 	st.title('UK Schools checker App')
 # get user Post code
 	st.sidebar.subheader("User Post Code")
@@ -29,8 +29,9 @@ def GUI():
 		
 	if (radio_but == 'Your Borough'):
 		focus = 3
-	else:
+	elif (radio_but == 'Entire District'):
 		focus = 2
+	
 	return user_post, user_dist ,user_crd, focus
 	
 # get user coordinates
@@ -111,9 +112,9 @@ def nearby_schools(po,user_crd,f):
 	# create a new df filtering only on schools in the district matching the first 3 chars of the postcode
 	df = schools[schools['District'] == po[0:f]]
 	# create a new df focusing on interesting columns 
-	selected_schools = df[[ 'EstablishmentName', 'OfstedRating (name)', 'LA (name)', 'SchoolCapacity', 'Postcode', 'Locality', 'NumberOfPupils', 'NumberOfBoys',
+	selected_schools = df[[ 'EstablishmentName', 'OfstedRating (name)', 'LA (name)', 'SchoolWebsite', 'Postcode', 'Locality', 'NumberOfPupils', 'NumberOfBoys',
 	 'NumberOfGirls', 'DistrictAdministrative (name)', 'Gender (name)', 'AdministrativeWard (name)', 'PhaseOfEducation (name)', 'ReligiousCharacter (name)',
-	  'StatutoryLowAge', 'StatutoryHighAge', 'TypeOfEstablishment (name)', 'OfstedLastInsp', 'Street', 'Address3', 'Town', 'County (name)', 'SchoolWebsite',
+	  'StatutoryLowAge', 'StatutoryHighAge', 'TypeOfEstablishment (name)', 'OfstedLastInsp', 'Street', 'Address3', 'Town', 'County (name)', 'SchoolCapacity',
 	   'TelephoneNum', 'EstablishmentStatus (name)',  'UKPRN', 'HeadFirstName', 'HeadLastName']]
 	# Replace NAN cells 
 	selected_schools.fillna('', inplace=True)
@@ -139,7 +140,6 @@ def nearby_schools(po,user_crd,f):
 		
 		folium.Marker([float(selected_schools.iloc[i,23]),float(selected_schools.iloc[i,24])], popup = [selected_schools.iloc[i,0],  selected_schools.iloc[i,1], selected_schools.iloc[i,22] ]).add_to(m)
 	folium_static(m)
-	#st.write(selected_schools.head(20))
 	
 	min_dist =selected_schools['Distance'].min()
 	nearest_school = selected_schools.loc[(selected_schools['Distance']==min_dist)]
@@ -153,7 +153,7 @@ def nearby_schools(po,user_crd,f):
 	# get schools matching filter criteria, to make all parameters in same form replace st with myform
 	myform= st.sidebar.form("Form2")
 		# filter on distance from home
-	dist_home = myform.slider('Distance from home in meters:', min_value=20, max_value=4000, step=50, value=1000)
+	dist_home = myform.slider('Distance from home in meters:', min_value=20, max_value=4000, step=50, value=1000, key=1)
 	#choose phase of education
 	phase= ("Any","Nursery", "Primary", "Secondary", "16 plus","All-through" )
 	phase_choice = myform.selectbox('Phase of educaton:', phase)
@@ -177,21 +177,40 @@ def nearby_schools(po,user_crd,f):
 		else:
 			df_selection = selected_schools.loc[(selected_schools['Distance'] <= dist_home) & (selected_schools['PhaseOfEducation (name)'] == phase_choice) & (selected_schools['OfstedRating (name)'] == ofsted_choice)]
 
+		
 	
 	#Travel_GAPI(user_crd[0] , user_crd[1],newdf[0,23],newdf[0,24],selected_Transport)
-
+	df_selection.style.hide_index()
 	st.write("Filtered schools: " , (len(df_selection)))
 	st.write(df_selection.astype(str))
 
-
+	radio_but2 = st.radio(label = 'Search Area', options = ['Remove Filter Map', 'Filter Map'])
+	st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+		
+	if (radio_but2 == 'Filter Map'):
+		m2 = folium.Map(location=[user_crd[0] , user_crd[1]], tiles="OpenStreetMap",zoom_start=16)
+		tooltip = "Liberty Bell" 
+		folium.Marker([user_crd[0], user_crd[1]], color='black' ,popup="Your Home",icon=folium.Icon(color='green', icon_color='white', icon='tint')).add_to(m2)
+		for i in range (0,len(df_selection)):
+		
+			folium.Marker([float(df_selection.iloc[i,23]),float(df_selection.iloc[i,24])], popup = [df_selection.iloc[i,0],  df_selection.iloc[i,1], df_selection.iloc[i,22] ]).add_to(m2)
+		folium_static(m2)
+	elif (radio_but2 == 'Remove Filter Map'):
+		filter_map = 2
+	
+	st.write(  " No. of filtered schools : ",len(df_selection) )
+	school_names = df_selection['EstablishmentName'].values.tolist()
+	filtered_schools =  st.selectbox('Filtered schools :' , school_names)
+	st.write(df_selection.loc[df_selection['EstablishmentName'] == filtered_schools].transpose().astype(str))
 def main ():
 	
-	x = GUI()
+	x = input()
 	user_dist = x[1]
 	user_post = x[0]
 	user_crd = x[2]
 	focus = x[3]
 	nearby_schools(user_post,user_crd,focus)
 	
+
 
 main()
