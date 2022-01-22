@@ -168,7 +168,7 @@ def nearby_schools(po,user_crd,f):
 	df_selection = selected_schools
 	if submitted:
 		if ofsted_choice == 'Any' and phase_choice == 'Any':
-			df_selection = selected_schools
+			df_selection = selected_schools.loc[(selected_schools['Distance'] <= dist_home)]
 		elif phase_choice == 'Any':
 			df_selection = selected_schools.loc[(selected_schools['Distance'] <= dist_home)  & (selected_schools['OfstedRating (name)'] == ofsted_choice)]
 		elif ofsted_choice == 'Any':
