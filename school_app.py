@@ -153,13 +153,13 @@ def nearby_schools(po,user_crd,f):
 	# get schools matching filter criteria, to make all parameters in same form replace st with myform
 	myform= st.sidebar.form("Form2")
 		# filter on distance from home
-	dist_home = myform.slider('Distance from home in meters:', min_value=20, max_value=4000, step=50, value=1000, key=1)
+	dist_home = myform.slider('Distance from home in meters:', min_value=20, max_value=4000, step=50, value=1000)
 	#choose phase of education
 	phase= ("Any","Nursery", "Primary", "Secondary", "16 plus","All-through" )
-	phase_choice = myform.selectbox('Phase of educaton:', phase, key=2)
+	phase_choice = myform.selectbox('Phase of educaton:', phase)
 	#choose ofsted rating
 	ofsted= ("Any","Good", "Outstanding","Special Measures")
-	ofsted_choice =  myform.selectbox('School OFsted Rating:', ofsted, key=3)
+	ofsted_choice =  myform.selectbox('School OFsted Rating:', ofsted)
 	#Choose mean of transport
 	transport = ( "Car", "Public Transport", "Walking", "Bike" )
 	selected_Transport = myform.selectbox('Enter the mean of transport', transport)
@@ -175,8 +175,8 @@ def nearby_schools(po,user_crd,f):
 			df_selection = selected_schools.loc[(selected_schools['Distance'] <= dist_home) & (selected_schools['PhaseOfEducation (name)'] == phase_choice)]
 
 		else:
-			df_selection = selected_schools
-		
+			df_selection = selected_schools.loc[(selected_schools['Distance'] <= dist_home) & (selected_schools['PhaseOfEducation (name)'] == phase_choice) & (selected_schools['OfstedRating (name)'] == ofsted_choice)]
+
 	
 	#Travel_GAPI(user_crd[0] , user_crd[1],newdf[0,23],newdf[0,24],selected_Transport)
 
