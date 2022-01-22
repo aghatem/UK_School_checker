@@ -1,5 +1,3 @@
-
-
 import streamlit as st
 from streamlit_folium import folium_static
 import folium
@@ -20,16 +18,17 @@ def GUI():
 	user_dist = user_post[0:3]
 	st.write('Your coordinates are : ', user_crd[0], " & ",  user_crd[1])
 	st.write('Your district is in : ', user_dist )
-	#Choose mean of transport
-	transport = ( "Car", "Public Transport", "Walking", "Bike")
-	selected_Transport = st.sidebar.selectbox('Enter the mean of transport', transport)
-	schools = ("sch1","sch2")
-	return user_post, user_dist ,user_crd
+	# search area
+	radio_but = st.radio(label = 'Search Area', options = ['Your Borough','Entire District'])
+	st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+	if (radio_but == 'Your Borough'):
+		focus = 3
+	else:
+		focus = 2
+	return user_post, user_dist ,user_crd, focus
 	
 # get user coordinates
 def Post_Code_to_Coordinates(pcode):
-
-   
     coord_API = "http://api.getthedata.com/postcode/"
     c_r = requests.get(coord_API+pcode)
     #print(c_r.json())
@@ -41,7 +40,6 @@ def Post_Code_to_Coordinates(pcode):
     return lat, long
 
 def mapit(lat,long):
-
 	# center the map on British Muserum WC1B3DG
 	global m
 	m = folium.Map(location=[lat , long], tiles="OpenStreetMap",zoom_start=16)
@@ -51,14 +49,14 @@ def mapit(lat,long):
 	folium_static(m)
 
 def Travel_GAPI(Lat1,Long1,Lat2,Long2,Transport_mode):
-	
 	# Google Distance API Documentation https://developers.google.com/maps/documentation/distance-matrix/overview?hl=en_US#transit_mode
+	# https://developers.google.com/maps/documentation/distance-matrix/overview#distance-matrix-responses
 	source = Lat1 & Long1
 	Dest = Lat2 & Long2
 	API_key= open("keyfile.txt", "r").read()
 	if tranport_mode == 'car':
 
-			url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" & Lat1 & "%2C" & Long1 & "&destinations=" & Lat2 & "%2C" & Long2 & "&mode=driving" & " &key=" & API_key 
+		url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" & Lat1 & "%2C" & Long1 & "&destinations=" & Lat2 & "%2C" & Long2 & "&mode=driving" & " &key=" & API_key 
 	if tranport_mode == 'Public Transport':
 
 		url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" & Lat1 & "%2C" & Long1 & "&destinations=" & Lat2 & "%2C" & Long2 & "&mode=transit" & "&key=" & API_key 
@@ -68,6 +66,7 @@ def Travel_GAPI(Lat1,Long1,Lat2,Long2,Transport_mode):
 	if tranport_mode == 'Bike':
 
 		url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" & Lat1 & "%2C" & Long1 & "&destinations=" & Lat2 & "%2C" & Long2 & "bicycling" & API_key 
+
 	payload={}
 	headers = {}
 
@@ -93,16 +92,18 @@ def get_distance (lat1,lon1,lat2,lon2):
     distance = round(R * c*1000,2)
     return distance
 
-def nearby_schools(po,user_crd):
+
+#@st.cache
+def nearby_schools(po,user_crd,f):
 
 
 	schools = pd.read_csv('schools_db.csv', engine='python', encoding='ISO-8859-1')
 	# Insert a new column in the df located in 1st column with name Distrocs and data to be added	
 	schools.insert(0, "District", True)
 	# fill new column with the first 3 characters of the postcode
-	schools['District'] = schools['Postcode'].astype(str).str[:3]
+	schools['District'] = schools['Postcode'].astype(str).str[:f]
 	# create a new df filtering only on schools in the district matching the first 3 chars of the postcode
-	df = schools[schools['District'] == po[0:3]]
+	df = schools[schools['District'] == po[0:f]]
 	# create a new df focusing on interesting columns 
 	selected_schools = df[[ 'EstablishmentName', 'OfstedRating (name)', 'LA (name)', 'SchoolCapacity', 'Postcode', 'Locality', 'NumberOfPupils', 'NumberOfBoys',
 	 'NumberOfGirls', 'DistrictAdministrative (name)', 'Gender (name)', 'AdministrativeWard (name)', 'PhaseOfEducation (name)', 'ReligiousCharacter (name)',
@@ -118,27 +119,52 @@ def nearby_schools(po,user_crd):
 		selected_schools.iloc[i,23] = Post_Code_to_Coordinates(selected_schools.iloc[i,4])[0]
 		selected_schools.iloc[i,24] = Post_Code_to_Coordinates(selected_schools.iloc[i,4])[1]
 		selected_schools.iloc[i,25] = get_distance(float(selected_schools.iloc[i,23]),float(selected_schools.iloc[i,24]),float(user_crd[0]),float(user_crd[1]))
-		
 
-	
+		
 	global m
 	m = folium.Map(location=[user_crd[0] , user_crd[1]], tiles="OpenStreetMap",zoom_start=14)
 	tooltip = "" 
 	folium.Marker([user_crd[0] , user_crd[1]],color='black' ,popup="Your Home",icon=folium.Icon(color='green', icon_color='white', icon='tint')).add_to(m)
 	for i in range (0,len(selected_schools)):
 		
-		folium.Marker([float(selected_schools.iloc[i,23]),float(selected_schools.iloc[i,24])], popup=selected_schools.iloc[i,0]).add_to(m)
-	folium_static(m)	
-	st.write(selected_schools.head(20))
+		folium.Marker([float(selected_schools.iloc[i,23]),float(selected_schools.iloc[i,24])], popup = [selected_schools.iloc[i,0],  selected_schools.iloc[i,1], selected_schools.iloc[i,22] ]).add_to(m)
+	folium_static(m)
+	#st.write(selected_schools.head(20))
 	
 
 	st.write("Nearest School Name is far ", selected_schools['Distance'].min(), " meters from your home")
 	st.write('Number of schools in youd district is :', len(selected_schools))
-	st.write(selected_schools.value_counts('OfstedRating (name)'))
-	#schools = selected_schools['EstablishmentName'].tolist()
-	#st.write('Selected School:', option)
-	#newdf = selected_schools.loc[(selected_schools.EstablishmentName == option)]
+	st.markdown('Summary:')
+	pivot = pd.crosstab(index=[selected_schools['Town'],selected_schools['PhaseOfEducation (name)']], columns=[selected_schools['OfstedRating (name)']],  margins=True)
+	st.write(pivot)
+	# filter on distance from home
+	dist_home = st.sidebar.slider('Distance from home in meters:', min_value=20, max_value=4000, step=50, value=1000)
+	#choose phase of education
+	phase= ("Any","Nursery", "Primary", "Secondary", "16 plus","All-through" )
+	phase_choice = st.sidebar.selectbox('Phase of educaton:', phase)
+	#choose ofsted rating
+	ofsted= ("Any","Good", "Outstanding","Special Measures")
+	ofsted_choice =  st.sidebar.selectbox('School OFsted Rating:', ofsted)
+
+	#Choose mean of transport
+	transport = ( "Car", "Public Transport", "Walking", "Bike" )
+	selected_Transport = st.sidebar.selectbox('Enter the mean of transport', transport)
+	# get schools matching filter criteria
+	Filter = st.sidebar.button("Filter")
 	#Travel_GAPI(user_crd[0] , user_crd[1],newdf[0,23],newdf[0,24],selected_Transport)
+	if phase_choice == 'Any':
+		df_selection = selected_schools.loc[(selected_schools['Distance'] <= dist_home)  & (selected_schools['OfstedRating (name)'] == ofsted_choice)]
+	elif ofsted_choice == 'Any':
+		df_selection = selected_schools.loc[(selected_schools['Distance'] <= dist_home) & (selected_schools['PhaseOfEducation (name)'] == phase_choice)]
+	elif ofsted_choice == 'Any' & phase_choice == 'Any':
+		df_selection = selected_schools
+	
+	else:
+
+		df_selection = selected_schools
+	st.write("Filtered schools: " , (len(df_selection)))
+	st.write(df_selection)
+
 
 def main ():
 	
@@ -146,9 +172,10 @@ def main ():
 	user_dist = x[1]
 	user_post = x[0]
 	user_crd = x[2]
+	focus = x[3]
 	#mapit(user_crd[0], user_crd[1])
 	
-	nearby_schools(user_post,user_crd)
+	nearby_schools(user_post,user_crd,focus)
 	
 
 main()
