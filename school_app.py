@@ -1,3 +1,6 @@
+
+
+from multiprocessing.context import set_spawning_popen
 import streamlit as st
 from streamlit_folium import folium_static
 import folium
@@ -7,20 +10,23 @@ import math
 import pandas as pd
 import chardet
 
+
 # Streamlit documentation https://docs.streamlit.io/library/api-reference/widgets
 def GUI():
 	st.title('UK Schools checker App')
 # get user Post code
 	st.sidebar.subheader("User Post Code")
-	user_post = st.sidebar.text_input("Please enter your post code: ", "WC1B3DG")
+	user_post = st.sidebar.text_input("Please enter your post code: 🔎", "WC1B3DG")
 	button_was_clicked = st.sidebar.button("SUBMIT")
 	user_crd = Post_Code_to_Coordinates(user_post)
 	user_dist = user_post[0:3]
 	st.write('Your coordinates are : ', user_crd[0], " & ",  user_crd[1])
-	st.write('Your district is in : ', user_dist )
+	
 	# search area
+	
 	radio_but = st.radio(label = 'Search Area', options = ['Your Borough','Entire District'])
 	st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+		
 	if (radio_but == 'Your Borough'):
 		focus = 3
 	else:
@@ -109,6 +115,10 @@ def nearby_schools(po,user_crd,f):
 	 'NumberOfGirls', 'DistrictAdministrative (name)', 'Gender (name)', 'AdministrativeWard (name)', 'PhaseOfEducation (name)', 'ReligiousCharacter (name)',
 	  'StatutoryLowAge', 'StatutoryHighAge', 'TypeOfEstablishment (name)', 'OfstedLastInsp', 'Street', 'Address3', 'Town', 'County (name)', 'SchoolWebsite',
 	   'TelephoneNum', 'EstablishmentStatus (name)',  'UKPRN', 'HeadFirstName', 'HeadLastName']]
+	# Replace NAN cells 
+	selected_schools.fillna('', inplace=True)
+	# Convert to strings
+	selected_schools.astype(str)
 	# Adding coordinates to each school
 	selected_schools.insert(23, "lat", True)
 	selected_schools.insert(24, "long", True)
@@ -131,39 +141,47 @@ def nearby_schools(po,user_crd,f):
 	folium_static(m)
 	#st.write(selected_schools.head(20))
 	
-
-	st.write("Nearest School Name is far ", selected_schools['Distance'].min(), " meters from your home")
-	st.write('Number of schools in youd district is :', len(selected_schools))
+	min_dist =selected_schools['Distance'].min()
+	nearest_school = selected_schools.loc[(selected_schools['Distance']==min_dist)]
+	st.write("Nearest School Name is",nearest_school.iloc[0,0], " which is far ", min_dist , " meters from your home")
+	st.write('Number of schools in your district is :', len(selected_schools))
 	st.markdown('Summary:')
 	pivot = pd.crosstab(index=[selected_schools['Town'],selected_schools['PhaseOfEducation (name)']], columns=[selected_schools['OfstedRating (name)']],  margins=True)
 	st.write(pivot)
-	# filter on distance from home
-	dist_home = st.sidebar.slider('Distance from home in meters:', min_value=20, max_value=4000, step=50, value=1000)
+	
+
+	# get schools matching filter criteria, to make all parameters in same form replace st with myform
+	myform= st.sidebar.form("Form2")
+		# filter on distance from home
+	dist_home = myform.slider('Distance from home in meters:', min_value=20, max_value=4000, step=50, value=1000, key=1)
 	#choose phase of education
 	phase= ("Any","Nursery", "Primary", "Secondary", "16 plus","All-through" )
-	phase_choice = st.sidebar.selectbox('Phase of educaton:', phase)
+	phase_choice = myform.selectbox('Phase of educaton:', phase, key=2)
 	#choose ofsted rating
 	ofsted= ("Any","Good", "Outstanding","Special Measures")
-	ofsted_choice =  st.sidebar.selectbox('School OFsted Rating:', ofsted)
-
+	ofsted_choice =  myform.selectbox('School OFsted Rating:', ofsted, key=3)
 	#Choose mean of transport
 	transport = ( "Car", "Public Transport", "Walking", "Bike" )
-	selected_Transport = st.sidebar.selectbox('Enter the mean of transport', transport)
-	# get schools matching filter criteria
-	Filter = st.sidebar.button("Filter")
-	#Travel_GAPI(user_crd[0] , user_crd[1],newdf[0,23],newdf[0,24],selected_Transport)
-	if phase_choice == 'Any':
-		df_selection = selected_schools.loc[(selected_schools['Distance'] <= dist_home)  & (selected_schools['OfstedRating (name)'] == ofsted_choice)]
-	elif ofsted_choice == 'Any':
-		df_selection = selected_schools.loc[(selected_schools['Distance'] <= dist_home) & (selected_schools['PhaseOfEducation (name)'] == phase_choice)]
-	elif ofsted_choice == 'Any' & phase_choice == 'Any':
-		df_selection = selected_schools
-	
-	else:
+	selected_Transport = myform.selectbox('Enter the mean of transport', transport)
+	#Filter = st.sidebar.button("Filter")
+	submitted =  myform.form_submit_button(label = "Filter")
+	df_selection = selected_schools
+	if submitted:
+		if ofsted_choice == 'Any' and phase_choice == 'Any':
+			df_selection = selected_schools
+		elif phase_choice == 'Any':
+			df_selection = selected_schools.loc[(selected_schools['Distance'] <= dist_home)  & (selected_schools['OfstedRating (name)'] == ofsted_choice)]
+		elif ofsted_choice == 'Any':
+			df_selection = selected_schools.loc[(selected_schools['Distance'] <= dist_home) & (selected_schools['PhaseOfEducation (name)'] == phase_choice)]
 
-		df_selection = selected_schools
+		else:
+			df_selection = selected_schools
+		
+	
+	#Travel_GAPI(user_crd[0] , user_crd[1],newdf[0,23],newdf[0,24],selected_Transport)
+
 	st.write("Filtered schools: " , (len(df_selection)))
-	st.write(df_selection)
+	st.write(df_selection.astype(str))
 
 
 def main ():
@@ -173,8 +191,6 @@ def main ():
 	user_post = x[0]
 	user_crd = x[2]
 	focus = x[3]
-	#mapit(user_crd[0], user_crd[1])
-	
 	nearby_schools(user_post,user_crd,focus)
 	
 
