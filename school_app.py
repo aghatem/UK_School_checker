@@ -108,6 +108,7 @@ def nearby_schools(po,user_crd,f):
 	schools['District'] = schools['Postcode'].astype(str).str[:f]
 	# create a new df filtering only on schools in the district matching the first 3 chars of the postcode
 	df = schools[schools['District'] == po[0:f]]
+	po = po.upper()
 	# create a new df focusing on interesting columns 
 	selected_schools = df[[ 'EstablishmentName', 'OfstedRating (name)', 'LA (name)', 'SchoolWebsite', 'Postcode', 'Locality', 'NumberOfPupils', 'NumberOfBoys',
 	 'NumberOfGirls', 'DistrictAdministrative (name)', 'Gender (name)', 'AdministrativeWard (name)', 'PhaseOfEducation (name)', 'ReligiousCharacter (name)',
