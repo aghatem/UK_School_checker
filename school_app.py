@@ -12,18 +12,18 @@ import chardet
 
 # Streamlit documentation https://docs.streamlit.io/library/api-reference/widgets
 
+# get user Post code
 def input():
 	st.title('UK Schools checker App')
-# get user Post code
 	st.sidebar.subheader("User Post Code")
 	user_post = st.sidebar.text_input("Please enter your post code: 🔎", "WC1B3DG")
 	button_was_clicked = st.sidebar.button("SUBMIT")
+	return user_post
+def check_dirstic(user_post):
 	user_crd = Post_Code_to_Coordinates(user_post)
 	user_dist = user_post[0:3]
 	st.write('Your coordinates are : ', user_crd[0], " & ",  user_crd[1])
-	
 	# search area
-	
 	radio_but = st.radio(label = 'Search Area', options = ['Your Borough','Entire District'])
 	st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 		
@@ -31,9 +31,19 @@ def input():
 		focus = 3
 	elif (radio_but == 'Entire District'):
 		focus = 2
-	
-	return user_post, user_dist ,user_crd, focus
+	return user_dist ,user_crd, focus
+
+def validate_input(user_post):
+	coord_API = "http://api.getthedata.com/postcode/"
+	c_r = requests.get(coord_API+user_post)
+	info =  c_r.json()["status"]
+	if info[0:8] == 'no_match':
+		valid = 0
+	else: valid = 1
+	return valid
+
 # get user coordinates
+
 def Post_Code_to_Coordinates(pcode):
     coord_API = "http://api.getthedata.com/postcode/"
     c_r = requests.get(coord_API+pcode)
@@ -104,18 +114,19 @@ def nearby_schools(po,user_crd,f):
 	schools = pd.read_csv('schools_db.csv', engine='python', encoding='ISO-8859-1')
 	# Insert a new column in the df located in 1st column with name Distrocs and data to be added	
 	schools.insert(0, "District", True)
+	
 	# fill new column with the first 3 characters of the postcode
 	schools['District'] = schools['Postcode'].astype(str).str[:f]
+	po = po.upper()
 	# create a new df filtering only on schools in the district matching the first 3 chars of the postcode
 	df = schools[schools['District'] == po[0:f]]
-	po = po.upper()
 	# create a new df focusing on interesting columns 
-	selected_schools = df[[ 'EstablishmentName', 'OfstedRating (name)', 'LA (name)', 'SchoolWebsite', 'Postcode', 'Locality', 'NumberOfPupils', 'NumberOfBoys',
+	selected_schools = df[['EstablishmentName', 'OfstedRating (name)', 'LA (name)', 'SchoolWebsite', 'Postcode', 'Locality', 'NumberOfPupils', 'NumberOfBoys',
 	 'NumberOfGirls', 'DistrictAdministrative (name)', 'Gender (name)', 'AdministrativeWard (name)', 'PhaseOfEducation (name)', 'ReligiousCharacter (name)',
 	  'StatutoryLowAge', 'StatutoryHighAge', 'TypeOfEstablishment (name)', 'OfstedLastInsp', 'Street', 'Address3', 'Town', 'County (name)', 'SchoolCapacity',
 	   'TelephoneNum', 'EstablishmentStatus (name)',  'UKPRN', 'HeadFirstName', 'HeadLastName']]
-	# Replace NAN cells 
-	selected_schools.fillna('', inplace=True)
+	# Replace NAN cells with blank
+	#selected_schools.fillna('', inplace=True)
 	# Convert to strings
 	selected_schools.astype(str)
 	# Adding coordinates to each school
@@ -123,13 +134,12 @@ def nearby_schools(po,user_crd,f):
 	selected_schools.insert(24, "long", True)
 	# Adding distance
 	selected_schools.insert(25, "Distance", True)
-	#st.write(selected_schools.head(20))
 	for i in range (0,len(selected_schools)):
 		selected_schools.iloc[i,23] = Post_Code_to_Coordinates(selected_schools.iloc[i,4])[0]
 		selected_schools.iloc[i,24] = Post_Code_to_Coordinates(selected_schools.iloc[i,4])[1]
 		selected_schools.iloc[i,25] = get_distance(float(selected_schools.iloc[i,23]),float(selected_schools.iloc[i,24]),float(user_crd[0]),float(user_crd[1]))
 	return selected_schools
-
+	
 def	present_data (selected_schools, user_crd):	
 	global m
 	m = folium.Map(location=[user_crd[0] , user_crd[1]], tiles="OpenStreetMap",zoom_start=14)
@@ -139,12 +149,11 @@ def	present_data (selected_schools, user_crd):
 	
 		folium.Marker([float(selected_schools.iloc[i,23]),float(selected_schools.iloc[i,24])], popup = [selected_schools.iloc[i,0],  selected_schools.iloc[i,1], selected_schools.iloc[i,22] ]).add_to(m)
 	folium_static(m)
-	
 	min_dist =selected_schools['Distance'].min()
 	nearest_school = selected_schools.loc[(selected_schools['Distance']==min_dist)]
-	st.write("Nearest School Name is",nearest_school.iloc[0,0], " which is far ", min_dist , " meters from your home")
+	#st.write("Nearest School Name is",nearest_school.iloc[1,0], " which is far ", min_dist , " meters from your home")
 	st.write('Number of schools in your district is :', len(selected_schools))
-	st.markdown('Summary:')
+	st.subheader('Summary:')
 	pivot = pd.crosstab(index=[selected_schools['Town'],selected_schools['PhaseOfEducation (name)']], columns=[selected_schools['OfstedRating (name)']],  margins=True)
 	st.write(pivot)
 	
@@ -162,10 +171,9 @@ def filter_choices():
 	#Choose mean of transport
 	transport = ( "Car", "Public Transport", "Walking", "Bike" )
 	selected_Transport = myform.selectbox('Enter the mean of transport', transport)
-	#Filter = st.sidebar.button("Filter")
 	submitted =  myform.form_submit_button(label = "Filter")
 	return dist_home, phase_choice, ofsted_choice, transport,submitted
-@st.cache
+#@st.cache
 def calcualte_form(user_crd, selected_schools,dist_home, phase_choice, ofsted_choice, transport,submitted):	
 	#df_selection = selected_schools
 	if submitted:
@@ -183,7 +191,7 @@ def calcualte_form(user_crd, selected_schools,dist_home, phase_choice, ofsted_ch
 	return df_selection
 def present_filtered(user_crd, df_selection):
 	df_selection.style.hide_index()
-	st.write("Filtered schools: " , (len(df_selection)))
+	st.subheader("Filtered schools: ")
 	st.write(df_selection.astype(str))
 
 	radio_but2 = st.radio(label = 'Search Area', options = ['Remove Filter Map', 'Filter Map'])
@@ -206,12 +214,25 @@ def present_filtered(user_crd, df_selection):
 	st.write(df_selection.loc[df_selection['EstablishmentName'] == filtered_schools].transpose().astype(str))
 
 def main ():
-	
 	x = input()
-	user_post = x[0]
-	user_dist = x[1]
-	user_crd = x[2]
-	focus = x[3]
+	user_post = x[0]	
+	while True:
+		k=0
+		try:
+			
+			k = validate_input(user_post) 
+		except ValueError:
+			k = 0
+			st.write('Not valid, Please enter a valid UK Postcode')
+			continue
+		else:
+			#valid pcode
+			break
+	d = check_dirstic(user_post)
+	user_dist = d[1]
+	user_crd = d[2]
+	focus = d[3]
+
 	df_nearby_school = nearby_schools(user_post,user_crd,focus)
 	present_data(df_nearby_school,user_crd)
 	
@@ -227,7 +248,7 @@ def main ():
 		calculation= calcualte_form(user_crd,df_nearby_school,distance_choice, phase_choise, ofsted_choice, transport_choice, submitted)
 	else:
 		calculation = df_nearby_school	
-
+	
 	#filtered_schools = calculation.loc[0]
 	present_filtered(user_crd, calculation)
 
