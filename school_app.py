@@ -48,10 +48,11 @@ def Post_Code_to_Coordinates(pcode):
     coord_API = "http://api.getthedata.com/postcode/"
     c_r = requests.get(coord_API+pcode)
     #print(c_r.json())
-    #lat = c_r.json()["data"][0]["latitude"]
+    lat = c_r.json()["data"][0]["latitude"]
+    long = c_r.json()["data"][0]["longitude"]
     coord = c_r.json()["data"]
-    lat = coord['latitude']
-    long = coord['longitude']
+    #lat = coord['latitude']
+    #long = coord['longitude']
     crd =lat+"_"+long
     return lat, long
 
