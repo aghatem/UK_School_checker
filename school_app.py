@@ -180,7 +180,7 @@ def nearby_schools(po,user_crd,f):
         
     
     #Travel_GAPI(user_crd[0] , user_crd[1],newdf[0,23],newdf[0,24],selected_Transport)
-    df_selection.style.hide_index()
+    df_selection()
     st.write("Filtered schools: " , (len(df_selection)))
     st.write(df_selection.astype(str))
 
