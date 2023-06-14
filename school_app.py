@@ -1,4 +1,3 @@
-
 import streamlit as st
 from streamlit_folium import folium_static
 import folium
@@ -10,7 +9,6 @@ import chardet
 
 
 # Streamlit documentation https://docs.streamlit.io/library/api-reference/widgets
-
 def input():
     st.title('UK Schools checker App')
 # get user Post code
@@ -34,7 +32,6 @@ def input():
     return user_post, user_dist ,user_crd, focus
     
 # get user coordinates
-
 def Post_Code_to_Coordinates(pcode):
     coord_API = "http://api.getthedata.com/postcode/"
     c_r = requests.get(coord_API+pcode)
@@ -100,7 +97,7 @@ def get_distance (lat1,lon1,lat2,lon2):
     return distance
 
 
-
+#@st.cache
 def nearby_schools(po,user_crd,f):
 
 
@@ -180,7 +177,7 @@ def nearby_schools(po,user_crd,f):
         
     
     #Travel_GAPI(user_crd[0] , user_crd[1],newdf[0,23],newdf[0,24],selected_Transport)
-    df_selection()
+    df_selection.style.hide_index()
     st.write("Filtered schools: " , (len(df_selection)))
     st.write(df_selection.astype(str))
 
