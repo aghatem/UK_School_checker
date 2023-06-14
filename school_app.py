@@ -10,6 +10,7 @@ import chardet
 
 
 # Streamlit documentation https://docs.streamlit.io/library/api-reference/widgets
+
 def input():
     st.title('UK Schools checker App')
 # get user Post code
@@ -33,6 +34,7 @@ def input():
     return user_post, user_dist ,user_crd, focus
     
 # get user coordinates
+
 def Post_Code_to_Coordinates(pcode):
     coord_API = "http://api.getthedata.com/postcode/"
     c_r = requests.get(coord_API+pcode)
@@ -98,7 +100,7 @@ def get_distance (lat1,lon1,lat2,lon2):
     return distance
 
 
-#@st.cache
+
 def nearby_schools(po,user_crd,f):
 
 
