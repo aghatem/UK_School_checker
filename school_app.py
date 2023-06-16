@@ -11,6 +11,9 @@ import chardet
 # Streamlit documentation https://docs.streamlit.io/library/api-reference/widgets
 def input():
     st.title('UK Schools Checker App')
+    st.write('This web app helps UK residents to assess schools in their neighberhood & select the suitable school based on multiple criteria')
+    st.write('Enter your UK post code in the left menu to check the nearest schools. You can filter schools by OFSTED ranking, school type, distance from home & calculate transport duration with Google Geo-map APIs')
+    
 # get user Post code
     st.sidebar.subheader("User Post Code")
     user_post = st.sidebar.text_input("Please enter your post code: 🔎", "WC1B3DG")
