@@ -177,9 +177,8 @@ def nearby_schools(po,user_crd,f):
         
     
     #Travel_GAPI(user_crd[0] , user_crd[1],newdf[0,23],newdf[0,24],selected_Transport)
-    df_selection = df_selection.style.hide()
-    length= len(df_selection)
-    st.write("Filtered schools: " , length)
+    df_selection.style.hide_index()
+    st.write("Filtered schools: " , (len(df_selection)))
     st.write(df_selection.astype(str))
 
     radio_but2 = st.radio(label = 'Search Area', options = ['Remove Filter Map', 'Filter Map'])
@@ -189,7 +188,7 @@ def nearby_schools(po,user_crd,f):
         m2 = folium.Map(location=[user_crd[0] , user_crd[1]], tiles="OpenStreetMap",zoom_start=16)
         tooltip = "Liberty Bell" 
         folium.Marker([user_crd[0], user_crd[1]], color='black' ,popup="Your Home",icon=folium.Icon(color='green', icon_color='white', icon='tint')).add_to(m2)
-        for i in range (0,length):
+        for i in range (0,len(df_selection)):
         
             folium.Marker([float(df_selection.iloc[i,23]),float(df_selection.iloc[i,24])], popup = [df_selection.iloc[i,0],  df_selection.iloc[i,1], df_selection.iloc[i,22] ]).add_to(m2)
         folium_static(m2)
