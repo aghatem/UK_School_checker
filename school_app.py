@@ -10,7 +10,7 @@ import chardet
 
 # Streamlit documentation https://docs.streamlit.io/library/api-reference/widgets
 def input():
-    st.title('UK Schools checker App')
+    st.title('UK Schools Checker App')
 # get user Post code
     st.sidebar.subheader("User Post Code")
     user_post = st.sidebar.text_input("Please enter your post code: 🔎", "WC1B3DG")
@@ -177,7 +177,7 @@ def nearby_schools(po,user_crd,f):
         
     
     #Travel_GAPI(user_crd[0] , user_crd[1],newdf[0,23],newdf[0,24],selected_Transport)
-    df_selection.style.hide_index()
+    #df_selection.style.hide_index()
     st.write("Filtered schools: " , (len(df_selection)))
     st.write(df_selection.astype(str))
 
