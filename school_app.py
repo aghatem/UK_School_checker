@@ -187,7 +187,7 @@ def nearby_schools(po,user_crd,f):
     
     # Display rating chart
     st.subheader('Schools Statistics  ')
-    st.write('These chart display the Ofsted ratings, type, phase of education and gender for the school in the search area you selected')
+    st.write('These charts display the Ofsted ratings, type, phase of education and gender for the schools in the search area you selected')
     display_ratings_chart(selected_schools)
     
     st.subheader('Summary:')
