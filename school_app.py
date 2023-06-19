@@ -12,7 +12,8 @@ import matplotlib.pyplot as plt
 
 def input():
     st.title('UK Schools checker App')
-    st.write('Check the nearest schools in your area using home postcodes in UK. This app provides OFSTED ranking, school type, distance from home & transport duration with Google Geo-map APIs This web app helps UK residents to assess schools in their neighberhood & select the suitable school based on multiple criteria.')
+    st.write('This web app helps UK residents to assess schools in their neighberhood & select the suitable school based on multiple criteria.')
+    st.write('Based on the home postcodes you provide in the left sidebar it will check the nearest schools in your area using and provide schools OFSTED ranking, school type, distance from your home & estimated duration to reach there relying on Google Geo-map APIs. ')
 # get user Post code
     st.sidebar.subheader("User Post Code")
     user_post = st.sidebar.text_input("Please enter your post code: 🔎", "WC1B3DG").upper()
