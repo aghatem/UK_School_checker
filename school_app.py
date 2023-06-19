@@ -2,21 +2,20 @@ import streamlit as st
 from streamlit_folium import folium_static
 import folium
 import requests
-from math import sin, cos, sqrt, atan2, radians
-import math
 import pandas as pd
-import chardet
+from math import sin, cos, sqrt, atan2, radians
+import matplotlib.pyplot as plt
 
 
 # Streamlit documentation https://docs.streamlit.io/library/api-reference/widgets
+
+
 def input():
-    st.title('UK Schools Checker App')
-    st.write('This web app helps UK residents to assess schools in their neighberhood & select the suitable school based on multiple criteria')
-    st.write('Enter your UK post code in the left menu to check the nearest schools. You can filter schools by OFSTED ranking, school type, distance from home & calculate transport duration with Google Geo-map APIs')
-    
+    st.title('UK Schools checker App')
+    st.write('Check nearest schools in UK using home postcodes and provides OFSTED ranking, school type, distance from home & transport duration with Google Geo-map APIs This web app helps UK residents to assess schools in their neighberhood & select the suitable school based on multiple criteria.')
 # get user Post code
     st.sidebar.subheader("User Post Code")
-    user_post = st.sidebar.text_input("Please enter your post code: 🔎", "WC1B3DG")
+    user_post = st.sidebar.text_input("Please enter your post code: 🔎", "WC1B3DG").upper()
     button_was_clicked = st.sidebar.button("SUBMIT")
     user_crd = Post_Code_to_Coordinates(user_post)
     user_dist = user_post[0:3]
@@ -36,16 +35,21 @@ def input():
     
 # get user coordinates
 def Post_Code_to_Coordinates(pcode):
-    coord_API = "http://api.getthedata.com/postcode/"
-    c_r = requests.get(coord_API+pcode)
-    #print(c_r.json())
-    #lat = c_r.json()["data"][0]["latitude"]
-    coord = c_r.json()["data"]
-    lat = coord['latitude']
-    long = coord['longitude']
-    crd =lat+"_"+long
-    return lat, long
+    try:
+        coord_API = "http://api.getthedata.com/postcode/"
+        c_r = requests.get(coord_API+pcode)
+        #print(c_r.json())
+        #lat = c_r.json()["data"][0]["latitude"]
+        coord = c_r.json()["data"]
+        lat = coord['latitude']
+        long = coord['longitude']
+        crd =lat+"_"+long
+        return lat, long
+    except TypeError:
+        st.error(f"An error occurred")
+        return None
 
+@st.cache(suppress_st_warning=True)
 def mapit(lat,long):
     # center the map on British Muserum WC1B3DG
     global m
@@ -55,7 +59,7 @@ def mapit(lat,long):
     folium.Marker([lat, long], popup="Liberty Bell", tooltip=tooltip).add_to(m)
     folium_static(m)
 
-def Travel_GAPI(Lat1,Long1,Lat2,Long2,Transport_mode):
+def Travel_GAPI(Lat1,Long1,Lat2,Long2,tranport_mode):
     # Google Distance API Documentation https://developers.google.com/maps/documentation/distance-matrix/overview?hl=en_US#transit_mode
     # https://developers.google.com/maps/documentation/distance-matrix/overview#distance-matrix-responses
     source = Lat1 & Long1
@@ -99,16 +103,50 @@ def get_distance (lat1,lon1,lat2,lon2):
     distance = round(R * c*1000,2)
     return distance
 
+def create_pie_chart(data):
+    fig = px.pie(data, values=data, names=data.index)
+    return fig
 
-#@st.cache
+
+
+# Display in a chart the schools ratings
+def display_ratings_chart(school_data):
+    # Remove blank entries from the school ratings
+    ratings  = pd.DataFrame(school_data['OfstedRating (name)'].copy(), columns=['OfstedRating (name)'])
+    ratings_count = ratings.value_counts()
+    fig, axs = plt.subplots(2, 2, figsize=(13, 13))
+    axs[0,0].pie(ratings_count.values, labels=ratings_count.index, autopct='%1.1f%%')
+    axs[0,0].set_title('Schools Ratings')
+    
+    type_counts = school_data['TypeOfEstablishment (name)'].value_counts()
+    axs[0,1].pie(type_counts, labels=type_counts.index, autopct='%1.1f%%', startangle=90)
+    axs[0,1].set_title('Schools Types')
+        
+
+
+    gender_counts = school_data['Gender (name)'].value_counts()
+    axs[1,0].pie(gender_counts, labels=gender_counts.index, autopct='%1.1f%%', startangle=90)
+    axs[1,0].set_title('Schools Gender')
+    
+   
+    phase_counts = school_data['PhaseOfEducation (name)'].value_counts()
+    axs[1,1].pie(phase_counts, labels=phase_counts.index, autopct='%1.1f%%', startangle=90)
+    axs[1,1].set_title('Schools Phase')
+    
+
+    st.pyplot(fig)
+   
+
+
 def nearby_schools(po,user_crd,f):
 
 
     schools = pd.read_csv('schools_db.csv', engine='python', encoding='ISO-8859-1')
-    # Insert a new column in the df located in 1st column with name Distrocs and data to be added   
+    # Insert a new column in the df located in 1st column with name District and data to be added   
     schools.insert(0, "District", True)
     # fill new column with the first 3 characters of the postcode
     schools['District'] = schools['Postcode'].astype(str).str[:f]
+    
     # create a new df filtering only on schools in the district matching the first 3 chars of the postcode
     df = schools[schools['District'] == po[0:f]]
     # create a new df focusing on interesting columns 
@@ -145,7 +183,14 @@ def nearby_schools(po,user_crd,f):
     nearest_school = selected_schools.loc[(selected_schools['Distance']==min_dist)]
     st.write("Nearest School Name is",nearest_school.iloc[0,0], " which is far ", min_dist , " meters from your home")
     st.write('Number of schools in your district is :', len(selected_schools))
-    st.markdown('Summary:')
+    
+    
+    # Display rating chart
+    st.subheader('Schools Statistics  ')
+    st.write('These chart display the Ofsted ratings, type, phase of education and gender for the school in the search area you selected')
+    display_ratings_chart(selected_schools)
+    
+    st.subheader('Summary:')
     pivot = pd.crosstab(index=[selected_schools['Town'],selected_schools['PhaseOfEducation (name)']], columns=[selected_schools['OfstedRating (name)']],  margins=True)
     st.write(pivot)
     
@@ -180,7 +225,7 @@ def nearby_schools(po,user_crd,f):
         
     
     #Travel_GAPI(user_crd[0] , user_crd[1],newdf[0,23],newdf[0,24],selected_Transport)
-    #df_selection.style.hide_index()
+
     st.write("Filtered schools: " , (len(df_selection)))
     st.write(df_selection.astype(str))
 
@@ -202,6 +247,8 @@ def nearby_schools(po,user_crd,f):
     school_names = df_selection['EstablishmentName'].values.tolist()
     filtered_schools =  st.selectbox('Filtered schools :' , school_names)
     st.write(df_selection.loc[df_selection['EstablishmentName'] == filtered_schools].transpose().astype(str))
+    
+
 def main ():
     
     x = input()
@@ -210,7 +257,8 @@ def main ():
     user_crd = x[2]
     focus = x[3]
     nearby_schools(user_post,user_crd,focus)
-    
 
 
-main()
+
+if __name__ == '__main__':
+    main()
