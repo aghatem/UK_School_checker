@@ -1,0 +1,1310 @@
+po_code,District
+EC3,City of London
+EC2,City of London
+EC4,City of London
+NW5,Camden
+WC1,Camden
+NW3,Camden
+NW1,Camden
+NW6,Camden
+N19,Camden
+EC1,Camden
+WC2,Camden
+NW2,Camden
+N1C,Camden
+NW8,Camden
+HP1,Camden
+SE8,Greenwich
+SE7,Greenwich
+SE2,Greenwich
+SE1,Greenwich
+SE9,Greenwich
+SE3,Greenwich
+RH1,Greenwich
+E95,Hackney
+N15,Hackney
+N16,Hackney
+E81,Hackney
+E96,Hackney
+E82,Hackney
+E50,Hackney
+N14,Hackney
+E83,Hackney
+E28,Hackney
+E97,Hackney
+E58,Hackney
+E84,Hackney
+E59,Hackney
+N17,Hackney
+N41,Hackney
+N42,Hackney
+E14,Tower Hamlets
+BR5,Hackney
+W14,Hammersmith and Fulham
+SW6,Hammersmith and Fulham
+W12,Hammersmith and Fulham
+W68,Hammersmith and Fulham
+W60,Hammersmith and Fulham
+W67,Hammersmith and Fulham
+W69,Hammersmith and Fulham
+TW1,Richmond upon Thames
+SL5,Hammersmith and Fulham
+N10,Islington
+N43,Islington
+N78,Islington
+N13,Islington
+N11,Islington
+N79,Islington
+N12,Islington
+N18,Islington
+N51,Islington
+N76,Islington
+N77,Islington
+N70,Islington
+N52,Islington
+N89,Islington
+N65,Islington
+N44,Islington
+W10,Kensington and Chelsea
+W11,Kensington and Chelsea
+SW3,Kensington and Chelsea
+SW1,Kensington and Chelsea
+SW5,Kensington and Chelsea
+W87,Kensington and Chelsea
+W86,Kensington and Chelsea
+W84,Kensington and Chelsea
+SW7,Kensington and Chelsea
+W85,Kensington and Chelsea
+W24,Kensington and Chelsea
+W43,Hounslow
+W1B,Westminster
+BR8,Kensington and Chelsea
+SW4,Lambeth
+SW2,Lambeth
+SW8,Lambeth
+SE5,Lambeth
+SW9,Lambeth
+TN3,Lambeth
+RG1,Lambeth
+SE4,Lewisham
+SE6,Lewisham
+BR1,Lewisham
+SL0,Southwark
+E33,Tower Hamlets
+E27,Tower Hamlets
+E10,Tower Hamlets
+E20,Tower Hamlets
+E17,Tower Hamlets
+E35,Tower Hamlets
+E34,Tower Hamlets
+E11,Tower Hamlets
+E26,Tower Hamlets
+E32,Tower Hamlets
+E29,Tower Hamlets
+E13,Tower Hamlets
+E15,Tower Hamlets
+E18,Tower Hamlets
+E1W,Tower Hamlets
+E12,Tower Hamlets
+E16,Tower Hamlets
+BN2,Tower Hamlets
+CT1,Wandsworth
+GU1,Wandsworth
+W93,Westminster
+W21,Westminster
+W25,Westminster
+W92,Westminster
+W26,Westminster
+W1W,Westminster
+W1H,Westminster
+W1K,Westminster
+W1D,Westminster
+W23,Westminster
+W91,Westminster
+W1U,Westminster
+W1G,Westminster
+W22,Westminster
+MK3,Westminster
+CT9,Westminster
+RM9,Barking and Dagenham
+RM8,Barking and Dagenham
+IG1,Barking and Dagenham
+RM1,Barking and Dagenham
+RM6,Barking and Dagenham
+RM7,Barking and Dagenham
+EN4,Barnet
+N31,Barnet
+N20,Barnet
+HA8,Barnet
+NW4,Barnet
+NW9,Barnet
+NW7,Barnet
+EN5,Barnet
+N32,Barnet
+N29,Barnet
+N33,Barnet
+N28,Barnet
+DA1,Bexley
+DA8,Bexley
+DA7,Bexley
+DA6,Bexley
+DA5,Bexley
+RG4,Wokingham
+BD2,Bradford
+HA0,Brent
+HA3,Brent
+HA9,Brent
+HA5,Harrow
+W71,Ealing
+BR2,Bromley
+BR3,Bromley
+BR4,Bromley
+BR7,Bromley
+TN1,Bromley
+BR6,Bromley
+CR5,Croydon
+CR8,Croydon
+CR0,Croydon
+CR7,Croydon
+CR2,Croydon
+CR3,Croydon
+CR9,Croydon
+L67,Liverpool
+W37,Ealing
+UB2,Ealing
+UB1,Ealing
+W38,Ealing
+W52,Ealing
+W72,Ealing
+UB6,Ealing
+W51,Ealing
+UB5,Ealing
+W13,Ealing
+W30,Ealing
+W73,Ealing
+W54,Ealing
+W41,Ealing
+W36,Ealing
+W55,Ealing
+W39,Ealing
+N22,Haringey
+EN1,Enfield
+N97,Enfield
+EN2,Enfield
+N99,Enfield
+EN3,Enfield
+N98,Enfield
+N21,Enfield
+EN6,Enfield
+N87,Haringey
+N64,Haringey
+N80,Haringey
+N88,Haringey
+HA2,Harrow
+HA1,Harrow
+HA7,Harrow
+WD2,Hertfordshire
+RM3,Havering
+RM5,Havering
+RM2,Havering
+RM4,Havering
+UB3,Hillingdon
+UB7,Hillingdon
+UB4,Hillingdon
+HA4,Hillingdon
+UB8,Hillingdon
+UB9,Hillingdon
+HA6,Hillingdon
+TW3,Hounslow
+W45,Hounslow
+W42,Hounslow
+TW4,Hounslow
+TW5,Hounslow
+TW7,Hounslow
+TW8,Hounslow
+KT1,Kingston upon Thames
+KT5,Kingston upon Thames
+KT2,Kingston upon Thames
+KT9,Kingston upon Thames
+KT3,Kingston upon Thames
+KT4,Kingston upon Thames
+KT6,Kingston upon Thames
+CR4,Merton
+SM4,Merton
+E70,Newham
+E61,Newham
+E66,Newham
+E62,Newham
+E63,Newham
+E79,Newham
+E78,Newham
+E65,Newham
+IG7,Redbridge
+IG3,Redbridge
+IG6,Redbridge
+IG2,Redbridge
+IG5,Redbridge
+IG4,Redbridge
+IG8,Redbridge
+TW9,Richmond upon Thames
+TW2,Richmond upon Thames
+SM1,Sutton
+SM6,Sutton
+SM5,Sutton
+SM2,Sutton
+SM3,Sutton
+E46,Waltham Forest
+E48,Waltham Forest
+E47,Waltham Forest
+E49,Waltham Forest
+B33,Birmingham
+B19,Birmingham
+B26,Birmingham
+B42,Birmingham
+B15,Birmingham
+B83,Birmingham
+B23,Birmingham
+B31,Birmingham
+B44,Birmingham
+B38,Birmingham
+B14,Birmingham
+B45,Birmingham
+B82,Birmingham
+B29,Birmingham
+B11,Birmingham
+B12,Birmingham
+B57,Birmingham
+B75,Birmingham
+B81,Birmingham
+B35,Birmingham
+B74,Birmingham
+B30,Birmingham
+B27,Birmingham
+B94,Birmingham
+B65,Birmingham
+B95,Birmingham
+B16,Birmingham
+B13,Birmingham
+B24,Birmingham
+B21,Birmingham
+B36,Birmingham
+B18,Birmingham
+B34,Birmingham
+B20,Birmingham
+B10,Birmingham
+B32,Birmingham
+B17,Birmingham
+B28,Birmingham
+B25,Birmingham
+B66,Birmingham
+B67,Birmingham
+B73,Birmingham
+B76,Birmingham
+B72,Birmingham
+B64,Birmingham
+B91,Solihull
+CH4,Wirral
+B60,Birmingham
+B98,Birmingham
+B93,Birmingham
+CV1,Coventry
+CV6,Coventry
+CV2,Coventry
+CV5,Coventry
+CV3,Coventry
+CV4,Coventry
+CV7,Coventry
+DY2,Dudley
+DY8,Dudley
+DY1,Dudley
+DY5,Dudley
+DY6,Dudley
+WV1,Dudley
+DY3,Dudley
+DY4,Dudley
+B63,Dudley
+B62,Dudley
+DY9,Dudley
+B71,Sandwell
+B70,Sandwell
+B43,Sandwell
+WS1,Sandwell
+B69,Sandwell
+B68,Sandwell
+WS5,Sandwell
+B90,Solihull
+B92,Solihull
+B37,Solihull
+WS3,Walsall
+WS2,Walsall
+WS8,Walsall
+WS4,Walsall
+WS9,Walsall
+WV6,Wolverhampton
+WV2,Wolverhampton
+WV4,Wolverhampton
+WV3,Wolverhampton
+WV9,Wolverhampton
+WV8,Wolverhampton
+L28,Knowsley
+L36,Knowsley
+L34,Knowsley
+L35,Knowsley
+L14,Knowsley
+L32,Knowsley
+L33,Knowsley
+L26,Knowsley
+L25,Knowsley
+WA8,Knowsley
+L13,Liverpool
+L76,Liverpool
+L62,Liverpool
+L11,Liverpool
+L87,Liverpool
+L10,Liverpool
+L19,Liverpool
+L44,Liverpool
+L81,Liverpool
+L40,Liverpool
+L99,Liverpool
+L86,Liverpool
+L79,Liverpool
+L12,Liverpool
+L18,Liverpool
+L72,Liverpool
+L51,Liverpool
+L69,Liverpool
+L49,Liverpool
+L82,Liverpool
+L15,Liverpool
+L50,Liverpool
+L89,Liverpool
+L66,Liverpool
+L91,Liverpool
+L84,Liverpool
+L47,Liverpool
+L42,Liverpool
+L78,Liverpool
+L16,Liverpool
+L17,Liverpool
+L24,Liverpool
+L80,Liverpool
+L92,Liverpool
+L93,Liverpool
+L88,Liverpool
+L27,Liverpool
+L90,Liverpool
+L41,Liverpool
+L45,Liverpool
+L53,Liverpool
+L83,Liverpool
+L64,Liverpool
+L60,Liverpool
+L43,Liverpool
+L48,Liverpool
+L85,Liverpool
+L96,Liverpool
+L70,Liverpool
+L73,Liverpool
+L52,Liverpool
+L58,Liverpool
+L54,Liverpool
+L46,Liverpool
+L55,Liverpool
+L97,Liverpool
+WA1,St. Helens
+WA9,St. Helens
+WN4,St. Helens
+WN5,St. Helens
+PR9,Sefton
+L21,Sefton
+L20,Sefton
+L30,Sefton
+L23,Sefton
+PR8,Sefton
+L31,Sefton
+L22,Sefton
+L37,Sefton
+TF1,Telford and Wrekin
+CH6,Wirral
+BL1,Bolton
+BL3,Bolton
+BL4,Bolton
+BL2,Bolton
+BL6,Bolton
+BL7,Bolton
+BL5,Bolton
+M26,Bolton
+BL8,Bury
+BL9,Bury
+BL0,Bury
+M25,Bury
+M45,Bury
+M71,Bury
+M12,Manchester
+M13,Manchester
+M91,Manchester
+M22,Manchester
+M15,Manchester
+M40,Manchester
+M18,Manchester
+M95,Manchester
+M19,Manchester
+M20,Manchester
+M14,Manchester
+M84,Manchester
+M23,Manchester
+M97,Manchester
+M21,Manchester
+M85,Manchester
+M96,Manchester
+M94,Manchester
+M16,Manchester
+M11,Manchester
+M88,Manchester
+M90,Manchester
+M98,Manchester
+M46,Manchester
+M89,Manchester
+M86,Manchester
+M80,Manchester
+M47,Manchester
+OL9,Oldham
+M44,Manchester
+M24,Manchester
+SK9,Manchester
+CW1,Manchester
+OL8,Oldham
+OL1,Oldham
+OL4,Oldham
+M35,Oldham
+OL2,Oldham
+OL3,Oldham
+M54,Salford
+M65,Salford
+M66,Salford
+M53,Salford
+M68,Salford
+M30,Salford
+M27,Salford
+M74,Salford
+M52,Salford
+M79,Salford
+M73,Salford
+M72,Salford
+M67,Salford
+M37,Salford
+M38,Salford
+M28,Salford
+M55,Salford
+M36,Salford
+SK3,Stockport
+SK4,Stockport
+SK5,Stockport
+SK2,Stockport
+SK1,Stockport
+SK8,Stockport
+SK6,Stockport
+SK7,Stockport
+OL6,Tameside
+OL7,Tameside
+M34,Tameside
+M43,Tameside
+OL5,Tameside
+M33,Trafford
+M31,Trafford
+M41,Trafford
+M32,Trafford
+WN2,Wigan
+WN1,Wigan
+WN6,Wigan
+WN3,Wigan
+WN7,Wigan
+M29,Wigan
+WA3,Wigan
+S71,Barnsley
+S70,Barnsley
+S63,Barnsley
+S75,Barnsley
+S73,Barnsley
+S72,Barnsley
+S36,Barnsley
+S74,Barnsley
+S35,Barnsley
+DN2,Doncaster
+DN4,Doncaster
+DN5,Doncaster
+DN6,Doncaster
+DN3,Doncaster
+DN1,Doncaster
+DN7,Doncaster
+S64,Doncaster
+DN8,Doncaster
+DN9,Doncaster
+S65,Rotherham
+S62,Rotherham
+S26,Rotherham
+S61,Rotherham
+S60,Rotherham
+S13,Rotherham
+S66,Rotherham
+S25,Rotherham
+S81,Rotherham
+S10,Sheffield
+S24,Sheffield
+S12,Sheffield
+S21,Sheffield
+S11,Sheffield
+S23,Sheffield
+S80,Sheffield
+S22,Sheffield
+S91,Sheffield
+S39,Sheffield
+S48,Sheffield
+S56,Sheffield
+S89,Sheffield
+S58,Sheffield
+S88,Sheffield
+S47,Sheffield
+S57,Sheffield
+S94,Sheffield
+S17,Sheffield
+S14,Sheffield
+S20,Sheffield
+S50,Sheffield
+S37,Sheffield
+S95,Sheffield
+S87,Sheffield
+S59,Sheffield
+S92,Sheffield
+BD1,Bradford
+BD9,Bradford
+BD8,Bradford
+BD4,Bradford
+BD3,Bradford
+BD6,Bradford
+BD7,Bradford
+BD5,Bradford
+LS2,Bradford
+HX3,Calderdale
+HX2,Calderdale
+HX1,Calderdale
+HD6,Calderdale
+HX4,Calderdale
+HX7,Calderdale
+HX6,Calderdale
+HX5,Calderdale
+WF1,Kirklees
+HD1,Kirklees
+HD8,Kirklees
+HD5,Kirklees
+HD4,Kirklees
+HD2,Kirklees
+HD3,Kirklees
+HD7,Kirklees
+HD9,Kirklees
+WF4,Kirklees
+LS1,Leeds
+LS6,Leeds
+WF3,Leeds
+LS4,Leeds
+LS7,Leeds
+LS3,Leeds
+LS5,Leeds
+LS8,Leeds
+LS9,Leeds
+WF8,Wakefield
+WF5,Wakefield
+WF7,Wakefield
+WF9,Wakefield
+WF6,Wakefield
+WF2,Wakefield
+NE8,Gateshead
+NE9,Gateshead
+NE1,Gateshead
+DH3,Gateshead
+NE4,Gateshead
+NE3,Gateshead
+NE2,Gateshead
+NE6,Newcastle upon Tyne
+NE5,Newcastle upon Tyne
+NE7,Newcastle upon Tyne
+SR6,South Tyneside
+SR1,Sunderland
+SR5,Sunderland
+SR4,Sunderland
+DH5,Sunderland
+SR3,Sunderland
+SR2,Sunderland
+DH4,Sunderland
+CB2,Cambridgeshire
+TR2,Isles Of Scilly
+BS2,"Bristol, City of"
+BS7,"Bristol, City of"
+BS1,"Bristol, City of"
+BS4,"Bristol, City of"
+BS5,"Bristol, City of"
+BS3,"Bristol, City of"
+BS6,"Bristol, City of"
+BS9,"Bristol, City of"
+BS8,"Bristol, City of"
+BA2,Bath and North East Somerset
+BA1,Bath and North East Somerset
+GL1,South Gloucestershire
+BA3,Bath and North East Somerset
+GL9,South Gloucestershire
+SN1,South Gloucestershire
+DL5,County Durham
+SS1,Thurrock
+NG1,Nottinghamshire
+TA2,"Bristol, City of"
+TA1,"Bristol, City of"
+MK4,Bedford
+SG1,Central Bedfordshire
+LU5,Central Bedfordshire
+LU2,Luton
+LU1,Luton
+LU3,Luton
+LU6,Central Bedfordshire
+LU4,Luton
+MK1,Central Bedfordshire
+PE2,Bedford
+LU7,Central Bedfordshire
+SG5,Central Bedfordshire
+NN2,Bedford
+NN1,Bedford
+RG2,Reading
+RG3,Reading
+SL6,Windsor and Maidenhead
+SL4,Windsor and Maidenhead
+RG5,Wokingham
+SL1,Slough
+SL2,Slough
+RG6,Reading
+RG7,West Berkshire
+GU4,Bracknell Forest
+SL3,Slough
+RG8,West Berkshire
+SL7,Windsor and Maidenhead
+PE1,Cambridgeshire
+HP6,Buckinghamshire
+HP2,Buckinghamshire
+MK2,Milton Keynes
+HP5,Buckinghamshire
+HP8,Buckinghamshire
+WD3,Buckinghamshire
+HP4,Buckinghamshire
+MK6,Milton Keynes
+HP9,Buckinghamshire
+SL9,Buckinghamshire
+SL8,Buckinghamshire
+MK8,Milton Keynes
+MK7,Milton Keynes
+MK5,Milton Keynes
+OX2,Buckinghamshire
+HP7,Buckinghamshire
+RG9,Buckinghamshire
+CB5,Cambridgeshire
+CB1,Cambridgeshire
+CB4,Cambridgeshire
+PE4,Peterborough
+PE3,Peterborough
+SG8,Cambridgeshire
+CB3,Cambridgeshire
+CB8,Cambridgeshire
+PE7,Cambridgeshire
+CB6,Cambridgeshire
+PE6,Peterborough
+PE8,Peterborough
+CB7,Cambridgeshire
+PE9,Peterborough
+PE5,Peterborough
+CW2,Cheshire East
+WA2,Warrington
+WA7,Halton
+WA4,Warrington
+WA5,Warrington
+CH1,Cheshire West and Chester
+CH2,Cheshire West and Chester
+CH3,Cheshire West and Chester
+WA6,Cheshire West and Chester
+ST7,Cheshire East
+CW4,Cheshire East
+CW6,Cheshire West and Chester
+CW7,Cheshire West and Chester
+CW8,Cheshire West and Chester
+CW9,Cheshire West and Chester
+CW3,Cheshire East
+CW5,Cheshire East
+SY1,Cheshire East
+TS2,Stockton-on-Tees
+TS6,Redcar and Cleveland
+TS1,Redcar and Cleveland
+TS4,Middlesbrough
+TS3,Middlesbrough
+TS5,Middlesbrough
+TS7,Middlesbrough
+TS8,Middlesbrough
+TR1,Cornwall
+TR3,Cornwall
+TR4,Cornwall
+TR5,Cornwall
+TR6,Cornwall
+TR8,Cornwall
+PL2,Cornwall
+TR7,Cornwall
+TR9,Cornwall
+PL3,Cornwall
+PL1,Cornwall
+EX2,Cornwall
+CA2,Cumbria
+LA1,Cumbria
+LA9,Cumbria
+CA1,Cumbria
+CA9,Cumbria
+CA4,Cumbria
+CA6,Cumbria
+CA7,Cumbria
+CA8,Cumbria
+CA5,Cumbria
+LA6,Cumbria
+LA7,Cumbria
+LA2,Cumbria
+CA3,Cumbria
+LA8,Cumbria
+LA5,Cumbria
+DE2,Derby
+DE1,Derby
+DE5,Derbyshire
+S41,Derbyshire
+S42,Derbyshire
+S45,Derbyshire
+DE7,Derbyshire
+S44,Derbyshire
+S33,Derbyshire
+S43,Derbyshire
+DE4,Derbyshire
+S32,Derbyshire
+DE6,Derbyshire
+S18,Derbyshire
+NG2,Derbyshire
+S40,Derbyshire
+DE3,Derby
+ST1,Derbyshire
+PL6,Plymouth
+TQ3,Torbay
+EX3,Devon
+PL4,Plymouth
+PL5,Plymouth
+EX1,Devon
+EX5,Devon
+EX6,Devon
+EX4,Devon
+EX8,Devon
+TQ1,Devon
+TQ9,Devon
+TQ5,Torbay
+TQ6,Devon
+EX7,Devon
+TQ7,Devon
+TQ4,Torbay
+TQ2,Torbay
+PL8,Devon
+PL7,Devon
+PL9,Devon
+TQ8,Devon
+EX9,Devon
+DT7,Devon
+BH1,Pre-LGR 2019 Poole
+BH2,Pre-LGR 2019 Dorset
+DT1,Dorset
+DT6,Pre-LGR 2019 Dorset
+DT2,Dorset
+SP8,Dorset
+SP5,Pre-LGR 2019 Dorset
+DT9,Pre-LGR 2019 Dorset
+BH3,Pre-LGR 2019 Dorset
+DT3,Pre-LGR 2019 Dorset
+DT5,Pre-LGR 2019 Dorset
+DT4,Pre-LGR 2019 Dorset
+BH8,Pre-LGR 2019 Bournemouth
+BH5,Pre-LGR 2019 Bournemouth
+BH6,Pre-LGR 2019 Bournemouth
+BH9,Pre-LGR 2019 Bournemouth
+SP6,Pre-LGR 2019 Dorset
+DT8,Dorset
+SP7,Pre-LGR 2019 Dorset
+BH7,Pre-LGR 2019 Bournemouth
+BH4,"Bournemouth, Christchurch and Poole"
+DH2,County Durham
+DH1,County Durham
+DH7,County Durham
+DH9,County Durham
+DL1,County Durham
+SR7,County Durham
+DL3,Darlington
+DH8,County Durham
+SR8,County Durham
+DH6,County Durham
+DL4,County Durham
+DL2,Darlington
+BN1,Brighton and Hove
+BN4,Brighton and Hove
+BN7,East Sussex
+TN6,East Sussex
+TN2,East Sussex
+BN8,East Sussex
+BN3,Brighton and Hove
+TN7,East Sussex
+TN4,East Sussex
+BN9,East Sussex
+BN6,East Sussex
+TN5,East Sussex
+CM1,Essex
+CM2,Essex
+CO2,Essex
+CO3,Essex
+CO4,Essex
+CO1,Essex
+SS2,Southend-on-Sea
+SS9,Southend-on-Sea
+SS0,Southend-on-Sea
+CO9,Essex
+CB9,Essex
+CO5,Essex
+CO7,Essex
+SS3,Southend-on-Sea
+CM7,Essex
+SS7,Essex
+CM9,Essex
+CM0,Essex
+SS8,Essex
+CM8,Essex
+SS4,Essex
+CM3,Essex
+SS5,Essex
+CM6,Essex
+SS6,Essex
+CM4,Essex
+EN9,Essex
+CM5,Essex
+IG9,Essex
+CO6,Essex
+GL5,Gloucestershire
+GL2,Gloucestershire
+GL4,Gloucestershire
+GL3,Gloucestershire
+GL8,Gloucestershire
+GL6,Gloucestershire
+OX7,Gloucestershire
+GL7,Gloucestershire
+NP1,Gloucestershire
+NP2,Gloucestershire
+WR1,Gloucestershire
+HR8,Gloucestershire
+PO4,Portsmouth
+PO1,Hampshire
+SO1,Southampton
+GU3,Hampshire
+SP1,Hampshire
+SO5,Hampshire
+PO6,Portsmouth
+PO9,Hampshire
+SO4,Hampshire
+SO3,Hampshire
+SO2,Hampshire
+PO8,Hampshire
+PO7,Hampshire
+SP9,Hampshire
+GU5,Hampshire
+PO2,Portsmouth
+PO3,Portsmouth
+PO5,Portsmouth
+GU2,Hampshire
+HR3,"Herefordshire, County of"
+B48,Worcestershire
+HR7,"Herefordshire, County of"
+WR6,"Herefordshire, County of"
+B61,Worcestershire
+HR4,"Herefordshire, County of"
+WR9,Worcestershire
+HR2,"Herefordshire, County of"
+WR7,Worcestershire
+HR1,"Herefordshire, County of"
+WR5,Worcestershire
+HR5,"Herefordshire, County of"
+HR6,"Herefordshire, County of"
+B96,Worcestershire
+B97,Worcestershire
+HR9,"Herefordshire, County of"
+WR4,Worcestershire
+WR2,Worcestershire
+WR3,Worcestershire
+B47,Worcestershire
+WR8,Worcestershire
+SY8,"Herefordshire, County of"
+SY7,"Herefordshire, County of"
+SG7,Hertfordshire
+EN8,Hertfordshire
+AL5,Hertfordshire
+AL1,Hertfordshire
+SG6,Hertfordshire
+AL2,Hertfordshire
+WD1,Hertfordshire
+AL6,Hertfordshire
+AL7,Hertfordshire
+SG2,Hertfordshire
+WD5,Hertfordshire
+HP3,Hertfordshire
+WD6,Hertfordshire
+AL3,Hertfordshire
+SG4,Hertfordshire
+SG3,Hertfordshire
+AL4,Hertfordshire
+SG9,Hertfordshire
+WD7,Hertfordshire
+AL8,Hertfordshire
+EN7,Hertfordshire
+WD4,Hertfordshire
+AL9,Hertfordshire
+HU6,"Kingston upon Hull, City of"
+HU2,"Kingston upon Hull, City of"
+HU5,"Kingston upon Hull, City of"
+YO1,East Riding of Yorkshire
+HU1,East Riding of Yorkshire
+HU4,"Kingston upon Hull, City of"
+HU3,"Kingston upon Hull, City of"
+BB1,Lancashire
+HU8,"Kingston upon Hull, City of"
+HU9,"Kingston upon Hull, City of"
+HU7,"Kingston upon Hull, City of"
+YO2,East Riding of Yorkshire
+YO4,East Riding of Yorkshire
+YO8,East Riding of Yorkshire
+CT6,Kent
+ME1,Kent
+ME4,Medway
+DA2,Kent
+DA3,Kent
+DA4,Kent
+ME3,Kent
+DA9,Kent
+TN8,Kent
+TN9,Kent
+ME2,Kent
+ME6,Kent
+ME5,Medway
+ME9,Kent
+CT2,Kent
+CT4,Kent
+CT3,Kent
+CT5,Kent
+CT8,Kent
+ME7,Medway
+ME8,Medway
+CT7,Kent
+BB5,Lancashire
+PR7,Lancashire
+PR6,Lancashire
+BB9,Lancashire
+L39,Lancashire
+PR1,Lancashire
+BB2,Blackburn with Darwen
+BB7,Lancashire
+BB8,Lancashire
+BB4,Lancashire
+BB3,Blackburn with Darwen
+FY5,Lancashire
+PR2,Lancashire
+PR3,Lancashire
+LA4,Lancashire
+LA3,Lancashire
+FY7,Lancashire
+FY6,Lancashire
+PR4,Lancashire
+FY8,Lancashire
+PR5,Lancashire
+BB6,Lancashire
+WN8,Lancashire
+FY1,Blackpool
+FY3,Blackpool
+FY4,Blackpool
+FY2,Blackpool
+LE8,Leicestershire
+LE1,Leicestershire
+LE7,Leicestershire
+LE6,Leicestershire
+LE3,Leicestershire
+NG3,Leicestershire
+LE9,Leicestershire
+LE4,Leicestershire
+LE2,Leicestershire
+LE5,Leicester
+CV9,Leicestershire
+LN2,Lincolnshire
+LN5,Lincolnshire
+LN4,Lincolnshire
+LN6,Lincolnshire
+LN1,Lincolnshire
+LN9,Lincolnshire
+LN8,Lincolnshire
+LN7,Lincolnshire
+LN3,Lincolnshire
+NR1,Norfolk
+NR5,Norfolk
+NR4,Norfolk
+NR3,Norfolk
+IP2,Norfolk
+NR2,Norfolk
+NR9,Norfolk
+NR7,Norfolk
+NR6,Norfolk
+NR8,Norfolk
+YO3,York
+DL7,North Yorkshire
+DL6,North Yorkshire
+DL8,North Yorkshire
+YO6,North Yorkshire
+TS9,North Yorkshire
+YO7,North Yorkshire
+DL9,North Yorkshire
+YO5,North Yorkshire
+HG3,North Yorkshire
+HG1,North Yorkshire
+HG2,North Yorkshire
+HG5,North Yorkshire
+HG4,North Yorkshire
+NN8,Northamptonshire
+NN4,Northamptonshire
+NN3,Northamptonshire
+NN7,Northamptonshire
+NN6,Northamptonshire
+OX1,Northamptonshire
+NN9,Northamptonshire
+NN5,Northamptonshire
+TD1,Northumberland
+NG7,Nottingham
+NG8,Nottingham
+NG6,Nottingham
+NG5,Nottingham
+NG4,Nottinghamshire
+NG9,Nottinghamshire
+OX4,Oxfordshire
+OX3,Oxfordshire
+OX8,Oxfordshire
+OX5,Oxfordshire
+OX9,Oxfordshire
+SN7,Oxfordshire
+SN6,Oxfordshire
+TF7,Telford and Wrekin
+TF2,Telford and Wrekin
+TF3,Telford and Wrekin
+WV7,Shropshire
+SY9,Shropshire
+TF8,Shropshire
+TF9,Shropshire
+SY6,Shropshire
+TF6,Telford and Wrekin
+TF4,Telford and Wrekin
+SY4,Shropshire
+SY5,Shropshire
+SY3,Shropshire
+SY2,Shropshire
+TF5,Telford and Wrekin
+WV5,Shropshire
+TA6,Somerset
+BA6,Somerset
+BA7,Somerset
+BA5,Somerset
+BA4,Somerset
+BA9,Somerset
+TA7,Somerset
+TA8,Somerset
+TA9,Somerset
+TA5,Somerset
+TA3,Somerset
+TA4,Somerset
+BA8,Somerset
+ST2,Stoke-on-Trent
+ST6,Stoke-on-Trent
+ST3,Stoke-on-Trent
+ST4,Stoke-on-Trent
+ST5,Staffordshire
+B77,Staffordshire
+ST9,Stoke-on-Trent
+ST8,Staffordshire
+B78,Staffordshire
+B79,Staffordshire
+DY7,Staffordshire
+WS6,Staffordshire
+WS7,Staffordshire
+IP1,Suffolk
+IP4,Suffolk
+IP3,Suffolk
+IP7,Suffolk
+IP6,Suffolk
+IP8,Suffolk
+IP9,Suffolk
+IP5,Suffolk
+CO8,Suffolk
+RH4,Surrey
+GU7,Surrey
+RH2,Surrey
+RH6,Surrey
+RH5,Surrey
+SM7,Surrey
+CR6,Surrey
+GU6,Surrey
+RH3,Surrey
+KT8,Surrey
+KT7,Surrey
+RH7,Surrey
+RH8,Surrey
+GU8,Surrey
+RH9,Surrey
+GU9,Surrey
+CV8,Warwickshire
+B49,Warwickshire
+B80,Warwickshire
+B46,Warwickshire
+B50,Warwickshire
+BN5,West Sussex
+SN2,Swindon
+SP4,Wiltshire
+SN4,Swindon
+SN3,Swindon
+SN9,Wiltshire
+SN8,Wiltshire
+SP2,Wiltshire
+SN5,Swindon
+SP3,Wiltshire
+N66,Camden
+E64,Newham
+L56,Liverpool
+L59,Liverpool
+CH7,Liverpool
+L38,Sefton
+L77,Wirral
+M93,Manchester
+M70,Salford
+S93,Sheffield
+S31,Sheffield
+B55,Birmingham
+M60,Manchester
+GY1,Guernsey Offshore Establishments
+IM1,Isle of Man Offshore Establishments
+JE2,Jersey Offshore Establishments
+JE3,Jersey Offshore Establishments
+IM7,Isle of Man Offshore Establishments
+JE1,Jersey Offshore Establishments
+IM9,Isle of Man Offshore Establishments
+GY8,Guernsey Offshore Establishments
+IM2,Isle of Man Offshore Establishments
+KY1,Scotland Offshore Establishments
+PH7,Scotland Offshore Establishments
+DG1,Scotland Offshore Establishments
+IM4,Isle of Man Offshore Establishments
+EH1,Scotland Offshore Establishments
+IM8,Isle of Man Offshore Establishments
+IM3,Isle of Man Offshore Establishments
+IM5,Isle of Man Offshore Establishments
+GY5,Guernsey Offshore Establishments
+GY2,Guernsey Offshore Establishments
+GY6,Guernsey Offshore Establishments
+GY7,Guernsey Offshore Establishments
+GY3,Guernsey Offshore Establishments
+GY4,Guernsey Offshore Establishments
+GY9,Guernsey Offshore Establishments
+DG3,Scotland Offshore Establishments
+EH4,Scotland Offshore Establishments
+IM6,Isle of Man Offshore Establishments
+CF5,Cardiff
+MK9,Milton Keynes
+W44,Hounslow
+AB2,Scotland Offshore Establishments
+FK2,Scotland Offshore Establishments
+M50,Salford
+W1T,Westminster
+L68,Liverpool
+L63,Liverpool
+N90,Enfield
+CF6,Vale of Glamorgan
+N9 ,Enfield
+W6 ,Hammersmith and Fulham
+S3 ,Sheffield
+M6 ,Salford
+S4 ,Sheffield
+N2 ,Barnet
+E5 ,Hackney
+W2 ,Westminster
+B6 ,Birmingham
+N7 ,Islington
+E7 ,Newham
+E6 ,Newham
+E3 ,Tower Hamlets
+E4 ,Waltham Forest
+S9 ,Sheffield
+B7 ,Birmingham
+S2 ,Sheffield
+E1 ,Tower Hamlets
+L8 ,Liverpool
+E2 ,Hackney
+E9 ,Hackney
+B9 ,Birmingham
+L5 ,Liverpool
+S5 ,Sheffield
+L6 ,Liverpool
+M8 ,Manchester
+W1J,Westminster
+N5 ,Islington
+L9 ,Liverpool
+S8 ,Sheffield
+W5 ,Ealing
+S7 ,Sheffield
+S6 ,Sheffield
+W3 ,Ealing
+M7 ,Salford
+N6 ,Haringey
+E8 ,Hackney
+M5 ,Salford
+W9 ,Westminster
+L4 ,Liverpool
+CH5,Flintshire
+LL1,Wrexham
+SA1,Carmarthenshire
+CF3,Bridgend
+CF4,Rhondda Cynon Taf
+CF8,Caerphilly
+NP4,Torfaen
+NP9,Newport
+CF1,Cardiff
+CF2,Cardiff
+LL6,Isle of Anglesey
+LL5,Isle of Anglesey
+LL7,Isle of Anglesey
+LL4,Gwynedd
+LL3,Gwynedd
+LL2,Gwynedd
+CH8,Flintshire
+LD1,Powys
+LD2,Powys
+LD8,Powys
+LD3,Powys
+LD5,Powys
+SA9,Powys
+NP8,Powys
+LD4,Powys
+LD7,Powys
+LD6,Powys
+SA4,Ceredigion
+SA3,Ceredigion
+SA7,Pembrokeshire
+SA6,Pembrokeshire
+SA2,Carmarthenshire
+SA5,Swansea
+SA8,Neath Port Talbot
+CF7,Vale of Glamorgan
+NP3,Blaenau Gwent
+NP7,Monmouthshire
+NP6,Monmouthshire
+NP5,Monmouthshire
