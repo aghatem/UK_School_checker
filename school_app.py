@@ -20,7 +20,7 @@ def input():
     button_was_clicked = st.sidebar.button("SUBMIT")
     user_crd = Post_Code_to_Coordinates(user_post)
     user_dist = user_post[0:3]
-    st.write('Your coordinates are : ', user_crd[0], " & ",  user_crd[1])
+ 
     
     # search area
     
