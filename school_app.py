@@ -213,7 +213,7 @@ def create_pie_chart(ds_db,schools,rank, rating_n, user_post):
         new_df=new_df.head(top_n)
         with input_col:
             plt.style.use('ggplot')
-            new_df.plot(kind='barh',figsize=(5,10),title='Top ranked districts')
+            new_df.sort_values(by='Outstanding').plot(kind='barh',figsize=(5,10),title='Top ranked districts')
             #plt.plot(x, y)
             plt.ylabel('UK districts')
             plt.xlabel('# of Outstanding schools in district')
